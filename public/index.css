@@ -1,0 +1,63 @@
+body {
+  background: #f6f6f6;
+}
+#app {
+  padding: 100px 0px;
+}
+.card {
+  box-shadow: 0px 10px 20px 0px rgba(0,0,0,.1);
+}
+.editor-wrapper {
+  border: 1px solid #ddd;
+}
+
+#app {
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+#app.scraping {
+  background: linear-gradient(223deg, #6146ce, #9d46ce, #7335bb);
+  background-size: 600% 600%;
+  -webkit-animation: animate-bg 2s ease infinite;
+  -moz-animation: animate-bg 2s ease infinite;
+  -o-animation: animate-bg 2s ease infinite;
+  animation: animate-bg 2s ease infinite;
+}
+
+#app.scraping h1 {
+  color: white;
+}
+
+#app .card-body.result {
+  padding: 0px;
+}
+
+.box-result {
+  background: #556760;
+  color: white;
+  overflow: auto;
+  margin: 0px;
+  padding: 15px;
+}
+
+@-webkit-keyframes animate-bg {
+    0%{background-position:0% 97%}
+    50%{background-position:100% 4%}
+    100%{background-position:0% 97%}
+}
+@-moz-keyframes animate-bg {
+    0%{background-position:0% 97%}
+    50%{background-position:100% 4%}
+    100%{background-position:0% 97%}
+}
+@-o-keyframes animate-bg {
+    0%{background-position:0% 97%}
+    50%{background-position:100% 4%}
+    100%{background-position:0% 97%}
+}
+@keyframes animate-bg {
+    0%{background-position:0% 97%}
+    50%{background-position:100% 4%}
+    100%{background-position:0% 97%}
+}

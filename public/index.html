@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Scrapi Playground</title>
+  <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/theme/neo.min.css">
+  <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="app" :class="{'scraping': submitting}">
+    <div class="container grid-sm">
+      <h1 class="text-center"><strong>Scrapi</strong> Playground</h1>
+      <div class="card">
+        <div class="toast toast-error" v-if="errorMessage">
+          <button class="btn btn-clear float-right" @click="errorMessage = null"></button>
+          {{ errorMessage }}
+        </div>
+        <form @submit.prevent="submit">
+          <div class="card-body">
+            <fieldset :disabled="submitting">
+              <div class="form-group" :class="{'has-error': errors.url}">
+                <label class="form-label" for="input-example-19">URL</label>
+                <input v-model="url" ref="url" type="text" class="form-input" :class="{'is-error': errors.url}" placeholder="http://..." autofocus>
+                <span v-if="errors.url" class="form-input-hint">{{ errors.url }}</span>
+              </div>
+              <div class="form-group" :class="{'has-error': errors.data}">
+                <label class="form-label" for="input-example-19">Data</label>
+                <div class="editor-wrapper">
+                  <textarea v-model="data" ref="dataEditor" class="form-input box-result" :class="{'is-error': errors.data}" placeholder="Write data you want to select with JSON here"></textarea>
+                </div>
+                <span v-if="errors.data" class="form-input-hint">{{ errors.data }}</span>
+              </div>
+            </fieldset>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-primary btn-block" :disabled="submitting">
+              <span v-if="!submitting">SUBMIT</span>
+              <span v-if="submitting">SCRAPING ...</span>
+            </button>
+          </div>
+        </form>
+        <div v-if="result" class="card-body result">
+          <pre class="form-control box-result">{{ result }}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/addon/edit/closebrackets.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/mode/javascript/javascript.min.js"></script>
+  <script src="/index.js"></script>
+</body>
+</html>
