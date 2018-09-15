@@ -4,6 +4,7 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const scraper = require('./utils/scraper')
+const { AssertionError } = require('assert')
 const { ScrapingError } = require('./utils/scraper')
 
 // Setup App
