@@ -6,7 +6,6 @@ const bodyParser = require('body-parser')
 const scraper = require('./utils/scraper')
 const { ScrapingError } = require('./utils/scraper')
 
-
 // Setup App
 const PORT = process.env['SCRAPI_PORT'] || 3000
 const DRIVER = process.env['SCRAPI_DRIVER'] || 'basic'
@@ -23,7 +22,14 @@ app.use(express.static('public'))
 const handleScrape = async (req, res, { url, data }) => {
   try {
     assert(url, `URL is required`)
-    assert(typeof data === 'object' && !Array.isArray(data), `Data is required and must be object`)
+    assert(
+      typeof data === 'string' || (typeof data === 'object' && !Array.isArray(data)),
+      `Data is required and must be object or JSON string`
+    )
+
+    if (typeof data === 'string') {
+      data = JSON.parse(data)
+    }
 
     const result = await scrape(url, data)
     return res.json({success: true, data: result})
