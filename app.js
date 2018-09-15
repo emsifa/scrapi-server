@@ -4,6 +4,7 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const scraper = require('./utils/scraper')
+const mapResult = require('./utils/map-result')
 const { AssertionError } = require('assert')
 const { ScrapingError } = require('./utils/scraper')
 
@@ -32,7 +33,7 @@ const handleScrape = async (req, res, { url, data }) => {
       data = JSON.parse(data)
     }
 
-    const result = await scrape(url, data)
+    const result = mapResult(data, await scrape(url, data))
     return res.json({success: true, data: result})
   } catch (err) {
     if (err instanceof ScrapingError || err instanceof AssertionError) {
