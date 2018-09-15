@@ -44,7 +44,7 @@ const resolveSelectors = (data) => {
   const result = {}
   for (let key in data) {
     const { field, scope } = parseField(key)
-    result[field] = (scope && typeof data === 'object') ? x(scope, resolveSelectors(data[key])) : data[key]
+    result[field] = (scope && typeof data[key] === 'object') ? x(scope, resolveSelectors(data[key])) : data[key]
   }
   return result
 }
