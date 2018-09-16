@@ -6,6 +6,9 @@ body {
 }
 .card {
   box-shadow: 0px 10px 20px 0px rgba(0,0,0,.1);
+  transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -webkit-transition: all 1s ease-out;
 }
 .editor-wrapper {
   border: 1px solid #ddd;
@@ -16,17 +19,9 @@ body {
   box-sizing: border-box;
 }
 
-#app.scraping {
-  background: linear-gradient(223deg, #6146ce, #9d46ce, #7335bb);
-  background-size: 600% 600%;
-  -webkit-animation: animate-bg 2s ease infinite;
-  -moz-animation: animate-bg 2s ease infinite;
-  -o-animation: animate-bg 2s ease infinite;
-  animation: animate-bg 2s ease infinite;
-}
-
-#app.scraping h1 {
-  color: white;
+#app.scraping .card {
+  opacity: .5;
+  box-shadow: 0px 0px 0px 0px rgba(0,0,0,.6);
 }
 
 #app .card-body.result {
@@ -46,25 +41,4 @@ body {
   background-color: #dd0023;
   color: white;
   font-weight: bold;
-}
-
-@-webkit-keyframes animate-bg {
-    0%{background-position:0% 97%}
-    50%{background-position:100% 4%}
-    100%{background-position:0% 97%}
-}
-@-moz-keyframes animate-bg {
-    0%{background-position:0% 97%}
-    50%{background-position:100% 4%}
-    100%{background-position:0% 97%}
-}
-@-o-keyframes animate-bg {
-    0%{background-position:0% 97%}
-    50%{background-position:100% 4%}
-    100%{background-position:0% 97%}
-}
-@keyframes animate-bg {
-    0%{background-position:0% 97%}
-    50%{background-position:100% 4%}
-    100%{background-position:0% 97%}
 }
