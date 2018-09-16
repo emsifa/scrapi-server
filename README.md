@@ -97,6 +97,13 @@ Data:
 }
 ```
 
+Explanation:
+
+* `@html`: would give you innerHTML of selected DOM.
+* `summary(.numbers-summary)`: this would select `.numbers-summary` as scope of it's child selectors (commits, branches, releases, and contributors).
+* `|trim`: trim filter. This would trim it's value. Currently there are 3 filters: `trim`, `no-double-whitespaces`, and `no-whitespaces`.
+* `"rootFiles(.file-wrap tr)": [{...}]`: this would select all of `.file-wrap tr` as an array. Each item in array would contains `{name: string, message, string, age: string}`. 
+
 ## Puppeteer
 
 Puppeteer driver let your scraper to fetch complete HTML including HTML rendered by javascript such as angular, react, vue, or some DOM that rendered after AJAX request.
