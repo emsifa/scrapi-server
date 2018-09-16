@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/codemirror.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/theme/neo.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/theme/neo.min.css">
   <link rel="stylesheet" href="/index.css">
 </head>
 <body>
@@ -15,10 +16,6 @@
     <div class="container grid-sm">
       <h1 class="text-center"><strong>Scrapi</strong> Playground</h1>
       <div class="card">
-        <div class="toast toast-error" v-if="errorMessage">
-          <button class="btn btn-clear float-right" @click="errorMessage = null"></button>
-          {{ errorMessage }}
-        </div>
         <form @submit.prevent="submit">
           <div class="card-body">
             <fieldset :disabled="submitting">
@@ -30,7 +27,7 @@
               <div class="form-group" :class="{'has-error': errors.data}">
                 <label class="form-label" for="input-example-19">Data</label>
                 <div class="editor-wrapper">
-                  <textarea v-model="data" ref="dataEditor" class="form-input box-result" :class="{'is-error': errors.data}" placeholder="Write data you want to select with JSON here"></textarea>
+                  <textarea v-model="data" ref="dataEditor" class="form-input" :class="{'is-error': errors.data}" placeholder="Write data you want to select with JSON here"></textarea>
                 </div>
                 <span v-if="errors.data" class="form-input-hint">{{ errors.data }}</span>
               </div>
@@ -43,7 +40,7 @@
             </button>
           </div>
         </form>
-        <div v-if="result" class="card-body result">
+        <div v-if="result" class="card-body box-result" :class="{'result-error': !result.success}">
           <pre class="form-control box-result">{{ result }}</pre>
         </div>
       </div>
@@ -54,6 +51,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/codemirror.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/addon/edit/closebrackets.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.0/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/json-formatter/0.7.0/json-formatter.min.js"></script>
   <script src="/index.js"></script>
 </body>
 </html>

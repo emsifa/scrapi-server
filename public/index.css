@@ -41,6 +41,13 @@ body {
   padding: 15px;
 }
 
+.box-result.result-error,
+.box-result.result-error pre {
+  background-color: #dd0023;
+  color: white;
+  font-weight: bold;
+}
+
 @-webkit-keyframes animate-bg {
     0%{background-position:0% 97%}
     50%{background-position:100% 4%}

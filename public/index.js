@@ -6,7 +6,6 @@ var app = new Vue({
     data: '',
     examples: [],
     errors: {},
-    errorMessage: null,
     editor: null,
     submitting: false,
     result: null
@@ -34,7 +33,6 @@ var app = new Vue({
     submit () {
       this.result = null
       this.submitting = true
-      this.errorMessage = null
 
       const data = { url: this.url, data: this.data }
       this.save(data)
@@ -46,7 +44,7 @@ var app = new Vue({
         .catch(err => {
           this.submitting = false
           if (err.response) {
-            this.errorMessage = err.response.data.error
+            this.result = err.response.data
           }
 
           if (this.errors) {
