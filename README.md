@@ -24,7 +24,7 @@ You can also try this simple query to check installation:
 http://localhost:3000/scrape?url=https://www.github.com&data={"title":"title"}
 ```
 
-#### API Endpoints
+## API Endpoints
 
 There are 2 endpoints you can call:
 
