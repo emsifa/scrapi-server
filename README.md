@@ -31,10 +31,10 @@ There are 2 endpoints you can call:
 1. `GET /scrape`
 2. `POST /scrape` 
 
-Each endpoints require `url` and `data` parameter.
+Each endpoints requires `url` and `data`.
 
-* `url`: URL to scrape. Currently we only support `GET` method.
-* `data`: Schema query (can be JSON string or object).
+* `url`: URL to scrape. Currently scrapi only support `GET` method.
+* `data`: schema query (can be JSON string or object).
 
 For example, you can open url below:
 
