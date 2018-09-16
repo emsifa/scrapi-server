@@ -71,6 +71,32 @@ Example above would gives us output like this:
 }
 ```
 
+#### Advanced Query
+
+Try this in your scrapi playground:
+
+URL: `https://www.github.com/emsifa/scrapi-server`
+
+Data:
+
+```json
+{
+  "title": "title",
+  "readme": ".markdown-body.entry-content@html",
+  "summary(.numbers-summary)": {
+    "commits": ".commits .num|trim",
+    "branches": "a[href$='/branches'] .num|trim",
+    "releases": "a[href$='/releases'] .num|trim",
+    "contributors": "a[href$='/contributors'] .num|trim"
+  },
+  "rootFiles(.file-wrap tr)": [{
+    "name": "td.content|trim",
+    "message": "td.message|trim",
+    "age": "td.age|trim"
+  }]
+}
+```
+
 ## Puppeteer
 
 Puppeteer driver let your scraper to fetch complete HTML including HTML rendered by javascript such as angular, react, vue, or some DOM that rendered after AJAX request.
