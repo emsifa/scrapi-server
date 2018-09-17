@@ -24,6 +24,10 @@ body {
   box-shadow: 0px 0px 0px 0px rgba(0,0,0,.6);
 }
 
+#app .card-body {
+  overflow: auto;
+}
+
 #app .card-body.result {
   padding: 0px;
 }
@@ -41,4 +45,14 @@ body {
   background-color: #dd0023;
   color: white;
   font-weight: bold;
+}
+
+@media screen and (max-width: 480px) {
+  #app {
+    padding: 1rem 0px;
+  }
+
+  #app .container.grid-sm {
+    max-width: 90%;
+  }
 }
